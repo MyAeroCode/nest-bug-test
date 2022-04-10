@@ -27,6 +27,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@nestjs/core": "github:myaerocode/nest#lutz-fix/scoped-injection-with-symbol"
+    "@nestjs/common": "^8.4.4",
+    "@nestjs/core": "^8.4.4"
   }
 }
