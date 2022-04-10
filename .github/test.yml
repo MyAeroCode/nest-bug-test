@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+        node_version: [10.x, 12.x, 14.x, 16.x]
+        architecture:
+          - x64
+    name: Test _ Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm i
+    - run: chmod +x ./scripts/patchNest.sh
+    - run: sh ./scripts/patchNest.sh
+    - run: npm run test
