@@ -1,4 +1,4 @@
-git clone -b lutz-fix/scoped-injection-with-symbol https://github.com/MyAeroCode/nest.git
+git clone -b master https://github.com/MyAeroCode/nest.git
 cd nest
 npm i
 npm run build
